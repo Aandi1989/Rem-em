@@ -27,25 +27,30 @@ body {
 //на 16 (размер шрифта по умолчанию)
         max-width: 65.625rem;
         position: relative;
-        &::before{
-            content:"";
-            background: url("./img/BackgroundPattern290.svg") 0 0 / 100%; // можем добавить no-repeat после 100% если это картинка а не обои 
-            position: absolute;
-            right:0;
-            // Ширину картинки по макету делим на ширину example__container (родителя с position:relative;)
-            // умножаем на 100  153 / 1050 * 100 = 14.57%
-            width: 14.57%;
-            //Высоту картинки по макету делим на ширину example__container (родителя с position:relative;)
-            //умножаем на 100  241 / 1050 * 100 = 22.95%
-            padding-top: 22.95%; // через этот padding мы задаем высоту картинки
-            //Половина высоты example__container (родителя с position:relative;)
-            top: 50%;
-            //Сдвиг вверх на половину 
-            //ширину/высоты картинки (меняется)
-            transform: translate(0, -50%); 
-            z-index: -1;
-            
+
+        //Переводим в EM нужный размер (768рх) делим
+        //на 16 (размер шрифта по умолчанию)
+        @media (min-width:48em){
+            &::before{
+                content:"";
+                background: url("./img/BackgroundPattern290.svg") 0 0 / 100%; // можем добавить no-repeat после 100% если это картинка а не обои 
+                position: absolute;
+                right:0;
+                // Ширину картинки по макету делим на ширину example__container (родителя с position:relative;)
+                // умножаем на 100  153 / 1050 * 100 = 14.57%
+                width: 14.57%;
+                //Высоту картинки по макету делим на ширину example__container (родителя с position:relative;)
+                //умножаем на 100  241 / 1050 * 100 = 22.95%
+                padding-top: 22.95%; // через этот padding мы задаем высоту картинки
+                //Половина высоты example__container (родителя с position:relative;)
+                top: 50%;
+                //Сдвиг вверх на половину 
+                //ширину/высоты картинки (меняется)
+                transform: translate(0, -50%); 
+                z-index: -1;
+            }
         }
+
     }
 
     &__header {
@@ -86,6 +91,14 @@ body {
         //Переводим в EM делим размер по макету (5рх) 
         //на размер шрифта (42рх)
         letter-spacing: 0.12em;
+    }
+
+    @media (max-width:48em) {
+        //Переводим в REM делим нужный размер (30рх)
+        //на 16 (размер шрифта по умолчанию)
+        &__title{
+            font-size: 2rem;
+        }
     }
 
     &__text {
