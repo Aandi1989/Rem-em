@@ -132,15 +132,26 @@ body {
   line-height: 1.5;
 }
 .example__items {
+  /* 
   display: flex;
-  flex-wrap: wrap;
-  row-gap: 24px;
-  margin: 0px -12px;
+   flex-wrap: wrap;
+   row-gap: 24px;
+   margin: 0px -12px;
+   */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18.125rem, 1fr));
+  gap: 24px;
 }
 .example__item {
+  /*
   padding: 0px 12px;
+  //Получаем размер в %
+  //делаем общую ширину  100% на три
   flex: 1 1 33.333%;
+  //Переводим в REM делим нужный размер (290px)
+  //на 16 (размер шрифта по умолчанию)
   min-width: 18.125rem;
+  */
 }
 
 .itemExample {
